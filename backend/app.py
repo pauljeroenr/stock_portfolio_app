@@ -60,18 +60,18 @@ def update():
     except Exception as e:
         return f"An Error Occured: {e}"
 
-#@app.route('/delete', methods=['GET', 'DELETE'])
-#def delete():
-#    """
-#        delete() : Delete a document from Firestore collection.
-#    """
-#    try:
-#        # Check for ID in URL query
-#        todo_id = request.args.get('id')
-#        todo_ref.document(todo_id).delete()
-#        return jsonify({"success": True}), 200
-#    except Exception as e:
-#        return f"An Error Occured: {e}"
+@app.route('/delete', methods=['GET', 'DELETE'])
+def delete():
+    """
+        delete() : Delete a document from Firestore collection.
+    """
+    try:
+        # Check for ID in URL query
+        todo_id = request.args.get('id')
+        todo_ref.document(todo_id).delete()
+        return jsonify({"success": True}), 200
+    except Exception as e:
+        return f"An Error Occured: {e}"
 
 port = int(os.environ.get('PORT', 8080))
 
