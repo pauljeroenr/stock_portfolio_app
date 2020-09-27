@@ -1,7 +1,7 @@
-FROM python:3.6.9
+FROM python:3.8-slim-buster
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
-COPY . /backend/app
+COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
